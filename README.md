@@ -14,6 +14,6 @@ Then just run:
 
 To make your life easier at this point you can switch your `nget` to:
 
-`export nget="node $NgetPATH/src/github.com/abhiagarwal/index.js"
+`export nget="node $NgetPATH/src/github.com/abhiagarwal/index.js"`
 
 Then you're able to use it!
