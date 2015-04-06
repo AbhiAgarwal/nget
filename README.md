@@ -6,7 +6,7 @@ Node alternative of go get. Very basic version. The setup process isn't great as
 
 Download this project and set up:
 
-`export nget="node <path to project>/index.js"
+`export nget="node <path to project>/index.js"`
 
 Then just run:
 
