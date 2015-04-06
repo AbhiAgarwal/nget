@@ -17,7 +17,7 @@
   },
   "homepage": "https://github.com/AbhiAgarwal/nget",
   "bin": {
-    "index": "index.js"
+    "nget": "index.js"
   },
   "dependencies": {
     "commander": "^2.7.1",
