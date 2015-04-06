@@ -1,10 +1,21 @@
 var program = require('commander');
 var fs = require('fs');
 var exec = require('child_process').exec;
+var path = require('path');
 
-function puts(error, stdout, stderr) {
+var puts = function (error, stdout, stderr) {
   if(error){
     console.log(error);
+  }
+}
+
+var CheckAndmkdir = function(path){
+  if (!fs.existsSync(path)) {
+    try {
+      fs.mkdirSync(path);
+    } catch(e) {
+      if ( e.code != 'EEXIST' ) throw e;
+    }
   }
 }
 
@@ -22,6 +33,10 @@ if (!program.args.length) {
   program.help();
   return
 } else {
+  // Check if src directory, etc. exist.
+  CheckAndmkdir(process.env.NgetPATH + "/src");
+  CheckAndmkdir(process.env.NgetPATH + "/src/github.com");
+  // Get command
   if (program.args[0] == "get") {
     if (program.args.length == 1) {
       console.log("Please specify repository");
@@ -32,7 +47,10 @@ if (!program.args.length) {
         process.env.NgetPATH + "src/" + splitArray[0].toLowerCase() + "/" + splitArray[1].toLowerCase() + "/";
     var GithubPath =
         "https://" + splitArray[0].toLowerCase() + "/" + splitArray[1].toLowerCase() + "/" + splitArray[2].toLowerCase() + ".git";
-    console.log(GithubPath);
+
+    CheckAndmkdir(process.env.NgetPATH + "src/" + splitArray[0].toLowerCase());
+    CheckAndmkdir(NgetPath);
+
     try {
         if (fs.existsSync(NgetPath + splitArray[2].toLowerCase())) {
             console.log("Directory already exists!");
