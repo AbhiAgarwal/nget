@@ -1,8 +1,5 @@
 var program = require('commander');
-var Git = require("nodegit");
 var fs = require('fs');
-var mkdirp = require('mkdirp');
-var sys = require('sys')
 var exec = require('child_process').exec;
 
 function puts(error, stdout, stderr) {
